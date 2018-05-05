@@ -156,31 +156,40 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>src/main/resources</directory>-->
+                <!--<excludes>-->
+                    <!--&lt;!&ndash;<exclude>*.properties</exclude>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<exclude>*.yml</exclude>&ndash;&gt;-->
+                <!--</excludes>-->
+            <!--</resource>-->
+        <!--</resources>-->
     </build>
 
     <repositories>
-        <!--<repository>-->
-            <!--<id>nexus</id>-->
-            <!--<name>Nexus</name>-->
-            <!--<url>http://192.168.16.7:8082/nexus/content/groups/public/</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
+        <repository>
+            <id>nexus</id>
+            <name>Nexus</name>
+            <url>http://192.168.16.7:8082/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>aliyunmaven</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
-    <!--<pluginRepositories>-->
-        <!--<pluginRepository>-->
-            <!--<id>nexus</id>-->
-            <!--<name>Nexus</name>-->
-            <!--<url>http://192.168.16.7:8082/nexus/content/groups/public/</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-            <!--</snapshots>-->
-        <!--</pluginRepository>-->
-    <!--</pluginRepositories>-->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Nexus</name>
+            <url>http://192.168.16.7:8082/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
