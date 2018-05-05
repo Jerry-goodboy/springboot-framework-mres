@@ -9,4 +9,6 @@ public interface AllTravelTimeBetweenZoneService {
     TestMresLandTravelTimeEntity findOne(String id);
     TestMresLandTravelTimeEntity save(TestMresLandTravelTimeEntity entity);
     List<TestMresLandTravelTimeEntity> delete(String id);
+    String getTravelTime();
+    String fileHandler();
 }

@@ -49,12 +49,23 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
@@ -148,28 +159,28 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>Nexus</name>
-            <url>http://192.168.16.7:8082/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+        <!--<repository>-->
+            <!--<id>nexus</id>-->
+            <!--<name>Nexus</name>-->
+            <!--<url>http://192.168.16.7:8082/nexus/content/groups/public/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
         <repository>
             <id>aliyunmaven</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>nexus</id>
-            <name>Nexus</name>
-            <url>http://192.168.16.7:8082/nexus/content/groups/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>nexus</id>-->
+            <!--<name>Nexus</name>-->
+            <!--<url>http://192.168.16.7:8082/nexus/content/groups/public/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 
 </project>

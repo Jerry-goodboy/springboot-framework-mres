@@ -5,13 +5,17 @@ import cn.psa.mres.entity.TestMresLandTravelTimeEntity;
 import cn.psa.mres.handleResult.ReturnResult;
 import cn.psa.mres.handleResult.ReturnResultGenerator;
 import cn.psa.mres.service.AllTravelTimeBetweenZoneService;
-import org.apache.commons.lang3.StringUtils;
+import cn.psa.mres.util.ConfigHander;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,17 +28,16 @@ public class AllTravelTimeBetweenZoneController {
     @Autowired
     private AllTravelTimeBetweenZoneService allTravelTimeBetweenZoneService;
 
+    private Logger logger = LogManager.getLogger(this.getClass());
+
     @RequestMapping(value = "/getTravelTime")
     @ResponseBody
     public ReturnResult getTravelTime( TestMresLandTravelTimeDto testMresLandTravelTimeDto)  {
+        String jsonStr = allTravelTimeBetweenZoneService.getTravelTime();
 
-        RestTemplate restTemplate = new RestTemplate();
-        String fooResourceUrl = "http://114.115.200.140:8080/singapore/getAllTravelTimeBetweenZone";
-        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl , String.class);
-
-        System.out.println("------ 接收开始 ------");
-        System.out.println(response.getBody());
-        System.out.println("------ 接收结束 ------");
+        JSONArray obj= JSONObject.parseArray(jsonStr);//获取jsonobject对象
+        String test1 = obj.getJSONObject(0).getString("Incentive_zone_to_c");
+        logger.info(test1);
 
         List<TestMresLandTravelTimeEntity> roleList = allTravelTimeBetweenZoneService.findAll();
         return ReturnResultGenerator.successResult(roleList);
