@@ -28,7 +28,7 @@ public class ScheduledHandler implements ApplicationRunner {
 //    @Scheduled(cron = "0/3 * * * * ?")
 //    @Scheduled(cron = "${webServiceURL.requestTimeRateCron}")
 
-//    @Scheduled(cron = "${webServiceURL.requestTimeRateCron}")
+    @Scheduled(cron = "${webServiceURL.requestTimeRateCron}")
     public void getAllTravelTime() throws Exception {
         allTravelTimeBetweenZoneService.getTravelTime();
         allTravelTimeBetweenZoneService.fileHandler();

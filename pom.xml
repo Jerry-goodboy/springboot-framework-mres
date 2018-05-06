@@ -127,10 +127,17 @@
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-starter-cache</artifactId>-->
         <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.oracle</groupId>-->
+            <!--<artifactId>ojdbc7</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc7</artifactId>
-            <version>1.0</version>
+            <groupId>com.oracle</groupId>  <!--自定义-->
+            <artifactId>ojdbc7</artifactId>    <!--自定义-->
+            <version>1.0</version> <!--自定义-->
+            <scope>system</scope> <!--system，类似provided，需要显式提供依赖的jar以后，Maven就不会在Repository中查找它-->
+            <systemPath>${basedir}/lib/ojdbc7-1.0.jar</systemPath> <!--项目根目录下的lib文件夹下-->
         </dependency>
         <!--servlet支持开启-->
         <dependency>
